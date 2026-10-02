@@ -4,23 +4,120 @@ html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run The State - Live Tracker</title>
+    <title>Run The State - Live Tracker & Updates</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; padding: 0; text-align: center; background: #111; color: #fff; }
-        header { padding: 20px; background: #1a1a1a; border-bottom: 2px solid #ff9900; }
-        h1 { margin: 0; font-size: 24px; color: #ff9900; }
-        p { margin: 5px 0 0 0; color: #aaa; font-size: 14px; }
-        .map-container { width: 100%; height: calc(100vh - 85px); position: relative; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; padding: 0; background: #111; color: #fff; line-height: 1.6; }
+        header { padding: 30px 20px; background: #1a1a1a; text-align: center; border-bottom: 3px solid #ff9900; }
+        h1 { margin: 0; font-size: 28px; color: #ff9900; text-transform: uppercase; letter-spacing: 1px; }
+        .subtitle { margin: 8px 0 0 0; color: #ccc; font-size: 15px; font-weight: 500; letter-spacing: 0.5px; }
+        
+        /* Map Area */
+        .map-section { width: 100%; height: 70vh; min-height: 500px; border-bottom: 2px solid #222; background: #000; }
         iframe { width: 100%; height: 100%; border: none; }
+        
+        /* Main Layout */
+        .content-container { max-width: 750px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { font-size: 24px; color: #ff9900; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Post Box */
+        .update-post { background: #1a1a1a; padding: 30px; border-radius: 12px; margin-bottom: 40px; border-left: 5px solid #ff9900; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .post-date { font-size: 13px; color: #ff9900; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
+        .post-title { font-size: 22px; margin: 0 0 15px 0; color: #fff; }
+        .update-post p { margin: 0 0 20px 0; color: #ddd; font-size: 16px; text-align: justify; }
+        
+        /* Donation Box Styling */
+        .donation-card { background: #222; border: 1px solid #333; border-radius: 8px; padding: 25px; margin: 25px 0; }
+        .donation-card h4 { margin-top: 0; color: #ff9900; font-size: 18px; text-transform: uppercase; }
+        .donation-btn { display: inline-block; background: #ff9900; color: #000; font-weight: bold; padding: 12px 25px; text-decoration: none; border-radius: 6px; margin-bottom: 20px; text-transform: uppercase; transition: background 0.2s; }
+        .donation-btn:hover { background: #e08800; }
+        .steps-list { text-align: left; padding-left: 20px; margin: 0; }
+        .steps-list li { margin-bottom: 8px; color: #eee; font-size: 15px; }
+        
+        /* Image Grid Styles */
+        .photo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
+        .post-media { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; border: 1px solid #333; transition: transform 0.2s; }
+        .post-media:hover { transform: scale(1.02); }
+        .full-width-media { grid-column: span 2; height: auto; max-height: 500px; }
+
+        @media (max-width: 600px) {
+            .photo-gallery { grid-template-columns: 1fr; }
+            .post-media { grid-column: span 1; height: auto; }
+        }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Run The State</h1>
-        <p>Live SPOT Gen4 Progress Tracker Across Arizona</p>
+        <div class="subtitle">Live Progress Tracker Across Arizona • #icandohardthings</div>
     </header>
-    <div class="map-container">
+
+    <!-- LIVE TRACKING MAP SECTION -->
+    <div class="map-section">
+        <!-- Make sure your live SPOT link is kept right here below -->
         <iframe src=https://maps.findmespot.com/s/MZYS></iframe>
     </div>
+
+    <!-- MAIN UPDATES SECTION -->
+    <div class="content-container">
+        <h2 class="section-title">Journey Timeline</h2>
+
+        <!-- START LAUNCH POST -->
+        <div class="update-post">
+            <div class="post-date">October 2, 2026</div>
+            <h3 class="post-title">Taking on the Challenge: Running Across Arizona</h3>
+            
+            <p>From October 10th to October 18th, I am taking on the challenge to Run the State—a run across Arizona along the I-40 corridor from New Mexico to Nevada.</p>
+            
+            <p>This journey is in memory of my son, Jefferson, who passed away during his senior year at Apollo High School on October 13, 2017, and my brother, David, who passed away on August 9, 2021.</p>
+            
+            <p>Our family has deep roots at Apollo. Jefferson poured his heart into cross country, wrestling, choir, and Track & Field, specifically pole vault. David shared that exact same love for Apollo football, wrestling, and choir.</p>
+            
+            <p>On October 13th, the anniversary of Jefferson's passing, the plan is to pause the road run to hike the Grand Canyon in their honor.</p>
+            
+            <p>Jefferson’s personal mantra was <strong>#icandohardthings</strong>. When he passed, our entire family took it on. To keep his spirit and their shared passions alive, we are asking for your support.</p>
+            
+            <p><strong>Want to join?</strong> You can join for part of the run! If you're interested in that, reach out and we can help facilitate getting you to and from, as long as you don't live too far away.</p>
+
+            <!-- PHOTO GALLERY ROW 1 (Place your first two images here) -->
+            <div class="photo-gallery">
+                <img class="post-media" src="photo1.jpg" alt="Run the State Photo 1">
+                <img class="post-media" src="photo2.jpg" alt="Run the State Photo 2">
+            </div>
+
+            <!-- STREAMLINED DONATION INTERFACE -->
+            <div class="donation-card">
+                <h4>Support Apollo High School Programs</h4>
+                <p style="text-align: left; font-size: 15px; margin-bottom: 20px;">We are asking for donations directly to the Apollo High School Choir, Wrestling, Football, Cross Country, or Track & Field programs, or any program near and dear to your heart. Contributions are handled securely through the Glendale Union High School District Donation Page.</p>
+                
+                <a class="donation-btn" href="https://www.guhsdaz.org/taxcredit" target="_blank">Go to Donation Page</a>
+                
+                <ol class="steps-list">
+                    <li>Select <strong>Guest</strong> on the landing page</li>
+                    <li>Use the first dropdown to select <strong>Apollo High School</strong></li>
+                    <li>Use the second dropdown to select your <strong>program of choice</strong></li>
+                    <li>Enter the dollar amount you would like to contribute</li>
+                    <li><strong>Crucial:</strong> Add <strong>"I can do hard things"</strong> to the memo line so we can track the impact of the run!</li>
+                    <li>Click the <strong>Buy</strong> button, then open your <strong>Cart</strong></li>
+                    <li>Confirm your donation group and amount, and click <strong>Pay</strong></li>
+                </ol>
+            </div>
+
+            <p><strong>Get a Shirt:</strong> To say thank you, anyone who makes a donation will receive a custom "I Can Do Hard Things" shirt featuring Jefferson's logo and mantra once the run is complete.</p>
+            
+            <p>Thank you for helping us carry their legacy forward. 💙🦅</p>
+            
+            <p style="color: #ff9900; font-weight: bold; margin-bottom: 0;">#RunTheState #icandohardthings #ApolloHawks #ApolloHighSchool #ArizonaRun</p>
+
+            <!-- PHOTO GALLERY ROW 2 (Place a third large image here if you have one) -->
+            <div class="photo-gallery">
+                <img class="post-media full-width-media" src="photo3.jpg" alt="Run the State Photo 3">
+            </div>
+
+        </div>
+        <!-- END LAUNCH POST -->
+
+    </div>
+
 </body>
 </html>
