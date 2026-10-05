@@ -6,58 +6,89 @@
     <title>Run The State - Live Tracker & Updates</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; padding: 0; background: #111; color: #fff; line-height: 1.6; }
-        header { padding: 30px 20px; background: #1a1a1a; text-align: center; border-bottom: 3px solid #ff9900; }
+        header { position: relative; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #1a1a1a; border-bottom: 3px solid #ff9900; text-align: center; }
         h1 { margin: 0; font-size: 28px; color: #ff9900; text-transform: uppercase; letter-spacing: 1px; }
         .subtitle { margin: 8px 0 0 0; color: #ccc; font-size: 15px; font-weight: 500; letter-spacing: 0.5px; }
         
-        /* Map Area */
+        /* Map Section */
         .map-section { width: 100%; height: 70vh; min-height: 500px; border-bottom: 2px solid #222; background: #000; }
         iframe { width: 100%; height: 100%; border: none; }
         
-        /* Main Layout */
+        /* Main Layout Content Container */
         .content-container { max-width: 750px; margin: 0 auto; padding: 40px 20px; }
         .section-title { font-size: 24px; color: #ff9900; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* Post Box */
+        /* Individual Post Box */
         .update-post { background: #1a1a1a; padding: 30px; border-radius: 12px; margin-bottom: 40px; border-left: 5px solid #ff9900; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
         .post-date { font-size: 13px; color: #ff9900; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
         .post-title { font-size: 22px; margin: 0 0 15px 0; color: #fff; }
         .update-post p { margin: 0 0 20px 0; color: #ddd; font-size: 16px; text-align: justify; }
         
-        /* Donation Box Styling */
+        /* Donation Card Styling */
         .donation-card { background: #222; border: 1px solid #333; border-radius: 8px; padding: 25px; margin: 25px 0; }
         .donation-card h4 { margin-top: 0; color: #ff9900; font-size: 18px; text-transform: uppercase; }
-        .donation-btn { display: inline-block; background: #ff9900; color: #000; font-weight: bold; padding: 12px 25px; text-decoration: none; border-radius: 6px; margin-bottom: 20px; text-transform: uppercase; transition: background 0.2s; }
-        .donation-btn:hover { background: #e08800; }
+        .donation-btn { display: inline-block; background: #ff9900; color: #000; font-weight: bold; padding: 12px 25px; text-decoration: none; border-radius: 6px; margin-bottom: 20px; text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px; }
         .steps-list { text-align: left; padding-left: 20px; margin: 0; }
         .steps-list li { margin-bottom: 8px; color: #eee; font-size: 15px; }
         
-        /* Image Grid Styles */
-        .photo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
-        .post-media { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; border: 1px solid #333; transition: transform 0.2s; }
-        .post-media:hover { transform: scale(1.02); }
+        /* Photo Grid Layouts */
+        .photo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; margin-bottom: 25px; }
+        .post-media { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; border: 1px solid #333; }
         .full-width-media { grid-column: span 2; height: auto; max-height: 500px; }
 
         @media (max-width: 600px) {
             .photo-gallery { grid-template-columns: 1fr; }
             .post-media { grid-column: span 1; height: auto; }
+            header { padding-left: 90px; } /* Gives room for left logo on tiny mobile displays */
         }
     </style>
 </head>
 <body>
 
-    <header style="position: relative; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <!-- LOGO MATCHING TEXT HEIGHT USING PHOTO3 -->
-    <img src="Photo3.jpg" alt="Logo" style="position: absolute; left: 20px; top: 38px; height: 56px; width: auto; object-fit: contain;">
+    <header>
+        <!-- LOGO IMAGE PINNED TO THE LEFT OF TEXT -->
+        <img src="Photo3.jpg" alt="Logo" style="position: absolute; left: 20px; top: 22px; height: 56px; width: auto; object-fit: contain; border-radius: 4px;">
+        
+        <h1>Run The State</h1>
+        <div class="subtitle">Live Progress Tracker Across Arizona • #icandohardthings</div>
 
+        <!-- LIVE LAUNCH COUNTDOWN SYSTEM -->
+        <div id="countdown-box" style="margin-top: 15px; background: #222; display: inline-block; padding: 8px 16px; border-radius: 6px; border: 1px solid #ff9900; font-weight: bold; color: #ff9900; font-size: 14px; letter-spacing: 0.5px;">
+            🚀 TIME TO LAUNCH: <span id="timer">--d --h --m --s</span>
+        </div>
+    </header>
+
+    <script>
+        // Real-Time Countdown Engine (Set for October 10, 2026 at 6:00 AM MST)
+        const launchDate = new Date("October 10, 2026 06:00:00").getTime();
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const timerElement = document.getElementById("timer");
+            if (timerElement) {
+                timerElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+            }
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                const boxElement = document.getElementById("countdown-box");
+                if (boxElement) boxElement.style.display = "none";
+            }
+        }, 1000);
+    </script>
 
     <!-- LIVE TRACKING MAP SECTION -->
     <div class="map-section">
-        <!-- Make sure your live SPOT link is kept right here below -->
-        <iframe src=https://maps.findmespot.com/s/MZYS></iframe>
+        <iframe src="https://findmespot.com"></iframe>
     </div>
 
-    <!-- MAIN UPDATES SECTION -->
+    <!-- MAIN TIMELINE CONTENT CONTAINER -->
     <div class="content-container">
         <h2 class="section-title">Journey Timeline</h2>
 
@@ -70,7 +101,7 @@
             
             <p>This journey is in memory of my son, Jefferson, who passed away during his senior year at Apollo High School on October 13, 2017, and my brother, David, who passed away on August 9, 2021.</p>
             
-            <p>Our family has deep roots at Apollo. Jefferson poured his heart into cross country, wrestling, choir, and Track & Field, specifically pole vault. David shared that exact same love for Apollo football, wrestling, drama, and choir.</p>
+            <p>Our family has deep roots at Apollo. Jefferson poured his heart into cross country, wrestling, choir, and Track & Field, specifically pole vault. David shared that exact same love for Apollo football, wrestling, and choir.</p>
             
             <p>On October 13th, the anniversary of Jefferson's passing, the plan is to pause the road run to hike the Grand Canyon in their honor.</p>
             
@@ -78,18 +109,18 @@
             
             <p><strong>Want to join?</strong> You can join for part of the run! If you're interested in that, reach out and we can help facilitate getting you to and from, as long as you don't live too far away.</p>
 
-            <!-- PHOTO GALLERY ROW 1 (Place your first two images here) -->
+            <!-- PHOTO GALLERY ROW 1 -->
             <div class="photo-gallery">
                 <img class="post-media" src="Photo1.jpg" alt="Run the State Photo 1">
                 <img class="post-media" src="Photo2.jpg" alt="Run the State Photo 2">
             </div>
 
-            <!-- STREAMLINED DONATION INTERFACE -->
+            <!-- APOLLO HIGH SCHOOL DONATION CARD -->
             <div class="donation-card">
                 <h4>Support Apollo High School Programs</h4>
                 <p style="text-align: left; font-size: 15px; margin-bottom: 20px;">We are asking for donations directly to the Apollo High School Choir, Wrestling, Football, Cross Country, or Track & Field programs, or any program near and dear to your heart. Contributions are handled securely through the Glendale Union High School District Donation Page.</p>
                 
-                <a class="donation-btn" href="https://www.guhsdaz.org/taxcredit" target="_blank">Go to Donation Page</a>
+                <a class="donation-btn" href="https://guhsdaz.org" target="_blank">Go to Donation Page</a>
                 
                 <ol class="steps-list">
                     <li>Select <strong>Guest</strong> on the landing page</li>
@@ -106,17 +137,19 @@
             
             <p>Thank you for helping us carry their legacy forward. 💙🦅</p>
             
-            <p style="color: #ff9900; font-weight: bold; margin-bottom: 0;">#RunTheState #icandohardthings #ApolloHawks #ApolloHighSchool #ArizonaRun</p>
+            <p style="color: #ff9900; font-weight: bold; margin-bottom: 25px;">#RunTheState #icandohardthings #ApolloHawks #ApolloHighSchool #ArizonaRun</p>
 
-            <!-- PHOTO GALLERY ROW 2 (Place a third large image here if you have one) -->
+            <!-- PHOTO GALLERY ROW 2 -->
             <div class="photo-gallery">
                 <img class="post-media full-width-media" src="Photo3.jpg" alt="Run the State Photo 3">
             </div>
 
+               </div>
+        <!-- END LAUNCH POST -->
 
-<!-- LIVE GISCUS COMMENTS MODULE -->
+        <!-- LIVE GISCUS COMMENTS MODULE -->
         <div style="margin-top: 40px;">
-            <script src="https://giscus.app/client.js"
+            <script src="https://giscus.app"
                     data-repo="neighborhoodelectrics/Run-The-State"
                     data-repo-id="R_kgDOU5Alog"
                     data-category="General"
@@ -126,14 +159,15 @@
                     data-reactions-enabled="1"
                     data-emit-metadata="0"
                     data-input-position="bottom"
-                    data-theme="dark"
+                    data-theme="preferred_color_scheme"
                     data-lang="en"
                     crossorigin="anonymous"
                     async>
             </script>
         </div>
 
-    </div> <!-- This closes your main content-container -->
+    </div> <!-- Closes your main content-container -->
 
 </body>
 </html>
+
