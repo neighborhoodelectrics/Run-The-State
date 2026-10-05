@@ -49,6 +49,33 @@
     <header>
         <h1>Run The State</h1>
         <div class="subtitle">Live Progress Tracker Across Arizona • #icandohardthings</div>
+         <!-- LIVE LAUNCH COUNTDOWN -->
+        <div id="countdown-box" style="margin-top: 15px; background: #222; display: inline-block; padding: 10px 20px; border-radius: 6px; border: 1px solid #ff9900; font-weight: bold; color: #ff9900; font-size: 15px; letter-spacing: 0.5px; text-transform: uppercase;">
+            🚀 Time to Launch: <span id="timer">--d --h --m --s</span>
+        </div>
+
+        <script>
+            // Set the launch date (October 10, 2026 at 6:00 AM Arizona Time)
+            const launchDate = new Date("October 10, 2026 06:00:00").getTime();
+
+            const timerInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+                // If the countdown is finished, hide the timer box completely
+                if (distance < 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById("countdown-box").style.display = "none";
+                }
+            }, 1000);
+        </script>
     </header>
 
     <!-- LIVE TRACKING MAP SECTION -->
