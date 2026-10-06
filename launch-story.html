@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Across Arizona - Run The State</title>
+    <style>
+        body { background-color: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 20px; }
+        .page-container { max-width: 600px; margin: 0 auto; padding-bottom: 50px; }
+        .back-link { display: inline-block; color: #ff9900; text-decoration: none; font-weight: bold; margin-bottom: 30px; font-size: 16px; }
+        .post-date { color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .post-title { color: #ff9900; margin: 0 0 20px 0; font-size: 28px; text-transform: uppercase; letter-spacing: 1px; }
+        p { font-size: 16px; line-height: 1.6; color: #ddd; margin-bottom: 20px; }
+        .photo-gallery { margin: 30px 0; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
+        .post-media { width: 100%; display: block; height: auto; }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <a href="index.html" class="back-link">⬅️ Back to Live Tracker Timeline</a>
+        <div class="post-date">October 2, 2026</div>
+        <h1 class="post-title">Taking on the Challenge: Running Across Arizona</h1>
+        <p>From October 10th to October 18th, I am taking on the challenge to Run the State—a run across Arizona along the I-40 corridor from New Mexico to Nevada.</p>
+        <p>This journey is in memory of my son, Jefferson, who passed away during his senior year at Apollo High School on October 13, 2017, and my brother, David, who passed away on August 9, 2021.</p>
+        <p>Our family has deep roots at Apollo. Jefferson poured his heart into cross country, wrestling, choir, and Track & Field, specifically pole vault. David shared that exact same love for Apollo football, wrestling, drama, and choir.</p>
+        <p>On October 13th, the anniversary of Jefferson's passing, the plan is to pause the road run to hike the Grand Canyon in their honor.</p>
+        <p>Jefferson's personal mantra was #icandohardthings. When he passed, our entire family took it on. To keep his spirit and their shared passions alive, we are asking for your support.</p>
+        
+        <div class="photo-gallery">
+            <img class="post-media" src="Photo1.jpg" alt="Run the State Photo 1">
+        </div>
+        <div class="photo-gallery">
+            <img class="post-media" src="Photo2.jpg" alt="Run the State Photo 2">
+        </div>
+
+        <div style="margin-top: 50px; border-top: 1px solid #333; padding-top: 30px;">
+            <h2 class="post-title" style="font-size: 22px;">Comments for This Story</h2>
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = window.location.href;
+                    this.page.identifier = 'launch_story_archive_page';
+                };
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://icandohardthings-1.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+        </div>
+    </div>
+</body>
+</html>
