@@ -95,7 +95,7 @@
             
             <p>On Saturday, October 10th he will start his longest run, across the state of Arizona.</p>
 
-            <!-- PHOTO GALLERY ROW -->
+           <!-- PHOTO GALLERY ROW -->
             <div class="photo-gallery">
                 <img class="post-media full-width-media" src="Jeff_Utah_Run.jpg" alt="Jefferson and Ryan 50/20 Challenge">
             </div>
@@ -103,11 +103,16 @@
             <!-- AUTOMATED PER-POST COMMENT MODULE -->
             <div style="margin-top: 40px;">
                 <h4 style="color: #ff9900; font-size: 18px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px;">Comments for This Story</h4>
-                <div id="disqus_thread_5020" style="background: #111; padding: 15px; border-radius: 8px; border: 1px solid #333;"></div>
+                
+                <!-- This unique ID acts as the physical box for the top comments -->
+                <div id="disqus_thread_5020" style="background: #1a1a1a; padding: 25px; border-radius: 12px; border: 1px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.5);"></div>
+                
                 <script>
                     var disqus_config = function () {
-                        this.page.url = window.location.href + '#5020';
+                        this.page.url = window.location.href.split('#')[0] + '#5020';
                         this.page.identifier = '5020_challenge_memory';
+                        // CRUCIAL: This tells Disqus exactly which box to load into
+                        this.container = '#disqus_thread_5020';
                     };
                     (function() {
                         var d = document, s = d.createElement('script');
