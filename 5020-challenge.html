@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 50/20 Challenge - Run The State</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #000; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 20px; }
+        .page-container { max-width: 600px; margin: 0 auto; padding-bottom: 50px; }
+        .back-link { display: inline-block; color: #ff9900; text-decoration: none; font-weight: bold; margin-bottom: 30px; font-size: 16px; }
+        .post-date { color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .post-title { color: #ff9900; margin: 0 0 20px 0; font-size: 28px; text-transform: uppercase; letter-spacing: 1px; }
+        p { font-size: 16px; line-height: 1.6; color: #ddd; margin-bottom: 20px; }
+        .photo-gallery { margin: 30px 0; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
+        .post-media { width: 100%; display: block; height: auto; }
+        .comment-section { margin-top: 50px; }
+        .comment-title { color: #ff9900; border-bottom: 2px solid #333; padding-bottom: 10px; text-transform: uppercase; font-size: 22px; letter-spacing: 1px; margin-bottom: 25px; }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- Back button returns reader to your main homepage timeline -->
+        <a href="index.html" class="back-link">⬅️ Back to Live Tracker Timeline</a>
+
+        <div class="post-date">October 6, 2026</div>
+        <h1 class="post-title">Where It All Began: The 50/20 Challenge</h1>
+        
+        <p>About 11 years ago we discovered our oldest son, Jeff, was a nut. In all fairness, it was his uncle’s fault. There was this “fun” race challenge called a 50/20 that his uncle was trying to rope him into doing. It was 50 miles up, down, and around the foothills of the Rocky Mountains in the Utah Valley. In order to call it complete you needed to go the distance on foot in under 20 hours. Jefferson was intrigued. More than intrigued, he insisted that he and his cousin be delivered to Utah to participate. Of course we took them to the airport, sent them on their way, and made them our sister and brother in laws problem.</p>
+        
+        <p>After work that day, we took the 9.5 hour drive up and were able to say hi to them, in the middle of the night, just as they had made the turn around for the last 25 miles. They seemed to be in good spirits and we were excited to head back to the house for some sleep, then go and meet them at the finish line. Much to our chagrin we were awakened by a call, about an hour later, that the boys were struggling, the cousin was throwing in the towel and Jefferson needed help and encouragement. Ryan put on his shoes (they were not running shoes or appropriate footwear) and was out the door in a flash to go the last 18 miles with his son. They crossed the finish line in under 20 hours and Jeff was hooked.</p>
+        
+        <p>The next year Jefferson roped in a couple of buddies and his ever loving dad, Ryan, to do the event a second time. This time they knew better what to expect and how to pace themselves and handle the demands of a long race. The race that year was held in September of 2017 and Jefferson died unexpectedly on October 13, 2017.</p>
+        
+        <p>Since then Ryan has run thousands of miles. At first it was a way to manage his grief over the death of his son. He was a sprint distance runner in high school and college and didn’t love to run more than 200 meters at a time. But he started running farther in an attempt to catch that illusive shadow just turning the corner ahead of him.</p>
+        
+        <p>On Saturday, October 10th he will start his longest run, across the state of Arizona.</p>
+
+        <!-- PHOTO CONTAINER -->
+        <div class="photo-gallery">
+            <img class="post-media" src="Jeff_Utah_Run.jpg" alt="Jefferson and Ryan 50/20 Challenge">
+        </div>
+
+        <!-- PUBLIC DEDICATED COMMENT SECTION -->
+        <div class="comment-section">
+            <h2 class="comment-title">Comments for This Story</h2>
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = window.location.href;
+                    // This unique name forces Disqus to keep these comments separate from the homepage
+                    this.page.identifier = '5020_challenge_story_page';
+                };
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://icandohardthings-1.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+        </div>
+
+    </div>
+
+</body>
+</html>
